@@ -5,15 +5,18 @@ import com.example.study.model.entitiy.Partner;
 import com.example.study.model.network.Header;
 import com.example.study.model.network.request.PartnerApiRequest;
 import com.example.study.model.network.request.PartnerApiResponse;
+import com.example.study.model.network.response.UserApiResponse;
 import com.example.study.repository.CategoryRepository;
 import com.example.study.repository.PartnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PartnerLogicService implements CrudInterface<PartnerApiRequest, PartnerApiResponse> {
+public class PartnerLogicService extends BaseService<PartnerApiRequest, PartnerApiResponse,Partner> {
 
     @Autowired
     private PartnerRepository partnerRepository;
@@ -103,5 +106,8 @@ public class PartnerLogicService implements CrudInterface<PartnerApiRequest, Par
         return Header.OK(body);
     }
 
-
+    @Override
+    public Header<List<UserApiResponse>> search(Pageable pageable) {
+        return null;
+    }
 }

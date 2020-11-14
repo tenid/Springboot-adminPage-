@@ -5,11 +5,14 @@ import com.example.study.model.entitiy.OrderGroup;
 import com.example.study.model.network.Header;
 import com.example.study.model.network.request.OrderGroupApiRequest;
 import com.example.study.model.network.response.OrderGroupApiResponse;
+import com.example.study.model.network.response.UserApiResponse;
 import com.example.study.repository.OrderGroupRepository;
 import com.example.study.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -104,5 +107,8 @@ public class OrderGroupApiLogicService extends BaseService<OrderGroupApiRequest,
 
     }
 
-
+    @Override
+    public Header<List<UserApiResponse>> search(Pageable pageable) {
+        return null;
+    }
 }

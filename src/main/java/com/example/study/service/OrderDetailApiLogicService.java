@@ -5,12 +5,15 @@ import com.example.study.model.entitiy.OrderDetail;
 import com.example.study.model.network.Header;
 import com.example.study.model.network.request.OrderDetailApiRequest;
 import com.example.study.model.network.response.OrderDetaiApilResponse;
+import com.example.study.model.network.response.UserApiResponse;
 import com.example.study.repository.ItemRepository;
 import com.example.study.repository.OrderDetailRepository;
 import com.example.study.repository.OrderGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -84,5 +87,10 @@ public class OrderDetailApiLogicService extends BaseService<OrderDetailApiReques
                 .totalPrice(orderDetail.getTotalPrice())
                 .build();
         return Header.OK(body);
+    }
+
+    @Override
+    public Header<List<UserApiResponse>> search(Pageable pageable) {
+        return null;
     }
 }

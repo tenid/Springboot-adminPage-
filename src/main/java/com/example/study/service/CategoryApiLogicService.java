@@ -8,10 +8,13 @@ import com.example.study.model.network.Header;
 import com.example.study.model.network.request.CategoryApiRequest;
 import com.example.study.model.network.request.PartnerApiRequest;
 import com.example.study.model.network.response.CategoryApiResponse;
+import com.example.study.model.network.response.UserApiResponse;
 import com.example.study.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -74,5 +77,8 @@ public class CategoryApiLogicService extends BaseService<CategoryApiRequest,Cate
         return Header.OK(body);
     }
 
-
+    @Override
+    public Header<List<UserApiResponse>> search(Pageable pageable) {
+        return null;
+    }
 }
