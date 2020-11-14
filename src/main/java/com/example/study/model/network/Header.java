@@ -24,6 +24,8 @@ public class Header<T> {
 
     private  T data;
 
+    private  Pagenation pagenation;
+
     //OK
     public static <T>Header<T> OK(){
 
@@ -47,6 +49,18 @@ public class Header<T> {
 
     }
 
+
+    public static <T>Header<T> OK(T data,Pagenation pagenation){
+
+        return (Header<T>)Header.builder()
+                .transactionTime(LocalDateTime.now())
+                .resultCode("OK")
+                .description("OK")
+                .data(data)
+                .pagenation(pagenation)
+                .build();
+
+    }
     //ERROR
     public static <T>Header<T> ERROR(String description){
 
